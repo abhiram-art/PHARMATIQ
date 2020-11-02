@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "437498788084",
+    "firebase_url": "https://pharmatiq-ad0ed.firebaseio.com",
+    "project_id": "pharmatiq-ad0ed",
+    "storage_bucket": "pharmatiq-ad0ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437498788084:android:0d01440108bb373d6506a1",
+        "android_client_info": {
+          "package_name": "com.example.pharmatiq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437498788084-fdqbcvaqeet9t1isjnbhga0655aoaabe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCunrPM93zB0VYVINU9bIQgNr1e4SAx04k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437498788084-fdqbcvaqeet9t1isjnbhga0655aoaabe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
