@@ -46,10 +46,10 @@ class _HomePageState extends State<HomePage> {
           child: Column(
               children: <Widget>[
                 Container(
-                  height: 120,
+                  height: 153,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('images/white1.jpg'),
+                          image: AssetImage('images/green3.png'),
                           fit: BoxFit.fill
                       )
                   ),
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                                 ]
                             )
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: 36,),
                         InkWell(
                           onTap: () {
                             Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => SignHome()));
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                           ),
 
                         ),
-                        SizedBox(height: 40,),
+                        SizedBox(height: 30,),
                         Container(
                             height: 50,
                             width: 200,
@@ -179,13 +179,13 @@ class _HomePageState extends State<HomePage> {
                                 color: Color.fromRGBO(0, 170, 140, 2)
                             )
                         ),
-                        SizedBox(height: 45,),
+                        SizedBox(height: 30,),
                         Container(
                             child: Center(
                               child: Text('or login with'),
                             )
                         ),
-                        SizedBox(height: 35,),
+                        SizedBox(height: 25,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -201,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                               child:
                               Container(
                                 width: 50,
-                                height: 50,
+                                height: 46,
                                 child: Image.asset('images/gicon.png'),
                               ),
 
