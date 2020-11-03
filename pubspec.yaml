@@ -37,6 +37,8 @@ dependencies:
   google_fonts:
   smooth_star_rating:
   badges:
+  firebase_core:
+  shared_preferences: ^0.5.12+2
 
 dev_dependencies:
   flutter_test:

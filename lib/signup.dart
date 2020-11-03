@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmatiq/homedesign.dart';
 import 'package:pharmatiq/main.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pharmatiq/authentication.dart';
@@ -18,11 +19,13 @@ class _SignHomeState extends State<SignHome> {
   void handleSignup() {
       signUp(email, password, context).then((value) {
         if (value != null) {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomePage(),
-              ));
+          saveUserInfoToFireStore(value).then((value){
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ));
+          });
         }
       });
   }

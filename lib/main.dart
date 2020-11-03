@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pharmatiq/config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'splashscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -6,18 +9,21 @@ import 'homedesign.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:pharmatiq/authentication.dart';
 
-void main() {
+Future<void> main() async {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen()
   )
   );
+  EcommerceApp.sharedPreferences = await SharedPreferences.getInstance();
+  EcommerceApp.firestore = Firestore.instance;
 }
 
 class HomePage extends StatefulWidget{
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 
 class _HomePageState extends State<HomePage> {
   String email;
