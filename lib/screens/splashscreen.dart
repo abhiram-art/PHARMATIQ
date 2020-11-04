@@ -1,7 +1,8 @@
 import 'dart:async';
-import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'login.dart';
 
 class SplashScreen extends StatefulWidget{
   @override
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
   displaySplash()
   {
     Timer(Duration(seconds: 2), () async{
-        Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+        Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => HomePage2()));
     });
   }
   Widget build(BuildContext context) {
