@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmatiq/my_button.dart';
-import 'notification_button.dart';
+import 'file:///C:/Users/ABHIRAM/AndroidStudioProjects/pharmatiq/lib/widgets/my_button.dart';
+import '../widgets/notification_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 class profile extends StatefulWidget{
   @override
