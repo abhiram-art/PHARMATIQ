@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:pharmatiq/config.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
@@ -134,8 +133,18 @@ Future saveUserInfoToFireStore(FirebaseUser fUser) async
     ({
     "uid" : fUser.uid,
     "email" : fUser.email,
+    EcommerceApp.userCartList: ["garbageValue"],
   });
   await EcommerceApp.sharedPreferences.setString('uid', fUser.uid);
   await EcommerceApp.sharedPreferences.setString(EcommerceApp.userEmail, fUser.email);
   await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, ["garbageValue"]);
+}
+Future readData(FirebaseUser fUser) async
+{
+  Firestore.instance.collection("users").document(fUser.uid).get().then((dataSnapshot) async {
+    await EcommerceApp.sharedPreferences.setStringList("uid" , dataSnapshot.data[EcommerceApp.useruid]);
+    await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userEmail , dataSnapshot.data[EcommerceApp.userEmail]);
+    List<String> cartlist = dataSnapshot.data[EcommerceApp.userCartList].cast<String>();
+    await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, cartlist);
+  });
 }

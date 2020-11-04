@@ -17,15 +17,17 @@ class _SignHomeState extends State<SignHome> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   void handleSignup() {
-      signUp(email, password, context).then((value) {
-        if (value != null) {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomePage2(),
-              ));
-        }
-      });
+    signUp(email, password, context).then((value) {
+      if (value != null) {
+        saveUserInfoToFireStore(value).then((value){
+        });
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage2(),
+            ));
+      }
+    });
   }
   @override
   Widget build(BuildContext context) {

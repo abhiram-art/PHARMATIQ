@@ -1,15 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../config.dart';
 import 'signup.dart';
 import 'homedesign.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:pharmatiq/authentication.dart';
 
-void main() {
+Future<void> main() async {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-  )
-  );
+  ));
+  EcommerceApp.sharedPreferences = await SharedPreferences.getInstance();
+  EcommerceApp.firestore = Firestore.instance;
 }
 class HomePage2 extends StatefulWidget{
 static const routeName ='/login';
