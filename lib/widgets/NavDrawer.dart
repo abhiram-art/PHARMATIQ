@@ -1,7 +1,7 @@
 import 'package:pharmatiq/profile.dart';
 import 'package:pharmatiq/authentication.dart';
-import 'main.dart';
-import 'homedesign.dart';
+import 'package:pharmatiq/screens/login.dart';
+import '../screens/homedesign.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -49,7 +49,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               signOutUser().then((value) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => HomePage2()),
                         (Route<dynamic> route) => false);
               }),
             },

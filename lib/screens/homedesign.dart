@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
-import 'package:pharmatiq/NavDrawer.dart';
-import 'package:pharmatiq/homedesign2.dart';
+import 'package:pharmatiq/widgets/NavDrawer.dart';
+import 'homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:pharmatiq/signup.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'signup.dart';
 import 'package:pharmatiq/notification_button.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -161,7 +159,8 @@ class _DashboardPageState extends State<DashboardPage>
               onTap: () {
                 //ToDo
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => listproduct()
+                    builder: (context) => HomePage1()
+
                 ));
               },
               child: Container(
