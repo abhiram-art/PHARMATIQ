@@ -38,6 +38,7 @@ dependencies:
   smooth_star_rating:
   badges:
   provider: ^4.0.4
+  shared_preferences: ^0.5.12+2
 
 dev_dependencies:
   flutter_test:
