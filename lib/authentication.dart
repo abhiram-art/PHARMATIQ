@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:pharmatiq/config.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 final gooleSignIn = GoogleSignIn();
@@ -123,4 +126,16 @@ Future<bool> signOutUser() async {
   }
   await auth.signOut();
   return Future.value(true);
+}
+
+Future saveUserInfoToFireStore(FirebaseUser fUser) async
+{
+  Firestore.instance.collection("user").document(fUser.uid).setData
+    ({
+    "uid" : fUser.uid,
+    "email" : fUser.email,
+  });
+  await EcommerceApp.sharedPreferences.setString('uid', fUser.uid);
+  await EcommerceApp.sharedPreferences.setString(EcommerceApp.userEmail, fUser.email);
+  await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, ["garbageValue"]);
 }
