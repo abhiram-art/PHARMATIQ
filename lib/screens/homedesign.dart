@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/widgets/NavDrawer.dart';
+import 'cart_screen.dart';
 import 'homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'signup.dart';
-import 'package:pharmatiq/widgets/notification_button.dart';
 
 class DashboardPage extends StatefulWidget {
   final String uid;
@@ -40,9 +40,9 @@ class _DashboardPageState extends State<DashboardPage>
         title: Text('PHARMATIq',style:GoogleFonts.ptSansCaption(textStyle:TextStyle(color: Colors.white),fontWeight:FontWeight.w500,fontSize: 27.0)),backgroundColor: Color.fromRGBO(0, 170, 140, 1),
         actions: <Widget>[
           //IconButton(icon:Icon( Icons.notifications_none,color:Colors.white), onPressed:(){}),
-          NotificationButton(),
-          IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,),onPressed: null)
-
+          IconButton(icon: Icon(Icons.shopping_cart,size: 30 ,color: Colors.white,),
+            onPressed: ()=>Navigator.of(context).pushNamed(CartScreen.routeName)
+          )
 
         ],
       ),

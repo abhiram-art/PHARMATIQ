@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'cart_screen.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -34,7 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 IconButton(
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.of(context).pushNamed(CartScreen.routeName);
+                  },
                 ),
                 Container(
                     width: 155.0,

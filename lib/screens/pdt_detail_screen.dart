@@ -13,7 +13,7 @@ class DetailPage extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedPdt.name),
+        backgroundColor: Color.fromRGBO(0, 170, 140, 1),
       ),
       body: Column(
         children: <Widget>[
@@ -22,16 +22,23 @@ class DetailPage extends StatelessWidget {
             width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.all(30),
-              child: Image.network(loadedPdt.imgUrl),
+              child:
+              Image.network(loadedPdt.imgUrl),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height:10),
+          Text(loadedPdt.name,
+            style: TextStyle(
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 10),
           Text(
 
-            'Price: \$${loadedPdt.price}',
+            'Price: \₹${loadedPdt.price}',
             style: TextStyle(
 
-              fontSize: 20,
+              fontSize: 14,
             ),
           ),
           SizedBox(height: 20),
@@ -48,7 +55,7 @@ class DetailPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        
+        backgroundColor: Color.fromRGBO(0, 170, 140, 1),
         onPressed: () {
           cart.addItem(productId, loadedPdt.name, loadedPdt.price);
         },

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pharmatiq/widgets/NavDrawer.dart';
+import 'package:pharmatiq/widgets/my_button.dart';
 import 'package:provider/provider.dart';
 import '../models/cart.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/cart_item.dart';
 import 'payment.dart';
 
@@ -11,11 +14,14 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text(
-          'My Cart',
-          style: TextStyle(fontSize: 30, color: Theme.of(context).accentColor),
-        ),
+        centerTitle: true,
+        title: Text('CART',style:GoogleFonts.ptSansCaption(textStyle:TextStyle(color: Colors.white),fontWeight:FontWeight.w500,fontSize: 27.0)),backgroundColor: Color.fromRGBO(0, 170, 140, 1),
+        //title: Text(
+          //'My Cart',
+          //style: TextStyle(fontSize: 30, color: Theme.of(context).accentColor),
+        //),
       ),
       body: Column(
         children: <Widget>[
@@ -56,8 +62,8 @@ class CheckoutButton extends StatefulWidget {
 class _CheckoutButtonState extends State<CheckoutButton> {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      child: Text('Checkout'),
+    return MyButton(
+      name: 'Checkout',
       onPressed: (){
         Navigator.push(context,MaterialPageRoute(builder: (context) => MyHomePage()));
       }
