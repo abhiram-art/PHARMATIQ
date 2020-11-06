@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pharmatiq/authentication.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
-import 'login.dart';
+import 'intro.dart';
 
 class SignHome extends StatefulWidget{
   @override
@@ -24,7 +24,7 @@ class _SignHomeState extends State<SignHome> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => HomePage2(),
+              builder: (context) => Intro(),
             ));
       }
     });
