@@ -4,7 +4,7 @@ import 'package:pharmatiq/authentication.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:pharmatiq/screens/intro.dart';
 
-import 'login.dart';
+import 'intro.dart';
 
 class SignHome extends StatefulWidget{
   @override

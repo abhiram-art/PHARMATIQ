@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmatiq/screens/homedesign.dart';
 class Intro2 extends StatelessWidget {
@@ -14,7 +12,7 @@ class Intro2 extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(
-                  height: 135,
+                  height: 124,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('images/green3.png'),
@@ -28,7 +26,7 @@ class Intro2 extends StatelessWidget {
                         children: <Widget>[
                           Container(
                               width: 300,
-                              height: 270,
+                              height: 250,
                               decoration:
                               BoxDecoration(image:DecorationImage(image:AssetImage('images/7.jpg'),fit: BoxFit.fitWidth), )
                           ),
@@ -42,7 +40,7 @@ class Intro2 extends StatelessWidget {
                 ),
                 Container(
                     width: 300,
-                    height: 160,
+                    height: 140,
                     child:Text('Know your Medicine',
                       style:GoogleFonts.ptSansCaption(textStyle: TextStyle(fontSize: 28)),
                     )
@@ -57,7 +55,7 @@ class Intro2 extends StatelessWidget {
                             colors: [
                               Color.fromRGBO(0, 170, 140, 2),
                               Color.fromRGBO(0, 170, 140, 2)
-                           ]
+                            ]
                         )
                     ),
                     child: FlatButton(
@@ -76,7 +74,7 @@ class Intro2 extends StatelessWidget {
                         color: Color.fromRGBO(0, 170, 140, 2)
                     )
 
-               ),
+                ),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
