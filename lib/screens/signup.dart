@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pharmatiq/authentication.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:pharmatiq/screens/intro.dart';
 
 import 'login.dart';
 
@@ -24,7 +25,7 @@ class _SignHomeState extends State<SignHome> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => HomePage2(),
+              builder: (context) => Intro(),
             ));
       }
     });

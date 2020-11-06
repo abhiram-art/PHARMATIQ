@@ -3,6 +3,7 @@ import 'package:pharmatiq/models/orders.dart';
 import 'package:pharmatiq/models/products.dart';
 import 'package:pharmatiq/screens/pdt_detail_screen.dart';
 import 'package:pharmatiq/screens/splashscreen.dart';
+import 'package:pharmatiq/widgets/NavDrawer.dart';
 import './screens/login.dart';
 import 'package:provider/provider.dart';
 import './models/cart.dart';
@@ -37,6 +38,7 @@ class HomePage extends StatelessWidget {
           HomePage2.routeName: (ctx) => HomePage2(),
           DetailPage.routeName: (ctx) => DetailPage(),
           CartScreen.routeName: (ctx) => CartScreen(),
+          //NavDrawer.routeName: (ctx) => CartScreen(),
         },
       ),
     );

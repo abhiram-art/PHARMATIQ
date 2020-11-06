@@ -95,7 +95,7 @@ class _HomePage2State extends State<HomePage2> {
                                     child: TextFormField(
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            icon: Icon(Icons.account_circle_rounded),
+                                            icon: Icon(Icons.account_circle),
                                             hintText: "Username",
                                             hintStyle: TextStyle(
                                                 color: Colors.black)

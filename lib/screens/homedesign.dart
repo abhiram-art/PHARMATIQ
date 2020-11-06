@@ -41,7 +41,8 @@ class _DashboardPageState extends State<DashboardPage>
         actions: <Widget>[
           //IconButton(icon:Icon( Icons.notifications_none,color:Colors.white), onPressed:(){}),
           NotificationButton(),
-          IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,),onPressed: null)
+          IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,),
+              onPressed: null)
 
 
         ],
