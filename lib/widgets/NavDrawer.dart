@@ -1,4 +1,4 @@
-import 'package:pharmatiq/profile.dart';
+import 'package:pharmatiq/screens/profile.dart';
 import 'package:pharmatiq/authentication.dart';
 import 'package:pharmatiq/screens/login.dart';
 import '../screens/homedesign.dart';

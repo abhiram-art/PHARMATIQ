@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmatiq/screens/sign_up_phone.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../config.dart';
 import 'signup.dart';
@@ -206,8 +207,21 @@ class _HomePage2State extends State<HomePage2> {
                                 height: 46,
                                 child: Image.asset('images/gicon.png'),
                               ),
-
                             ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                    builder: (context) => PhonePage()));
+                              },
+                              child:
+                              Container(
+                                width: 50,
+                                height: 46,
+                                child: Image.asset('images/phone.png'),
+                              ),
+                            ),
+
+
                           ],
                         )
                       ],

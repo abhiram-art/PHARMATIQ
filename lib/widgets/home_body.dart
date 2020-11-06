@@ -8,15 +8,15 @@ class HomeBody extends StatelessWidget {
     return ListView(
       children: <Widget>[
         SizedBox(
-          height: 40,
+          height: 30,
         ),
         Center(
             child: Text(
           'Tablets',
-          style: TextStyle(fontSize: 40, fontFamily:'Varela'),
+          style: TextStyle(fontSize: 30, fontFamily:'Varela'),
         )),
         SizedBox(
-          height: 40,
+          height: 20,
         ),
          Padding(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
