@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../models/products.dart';
+import 'products.dart';
+import'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../models/cart.dart';
+import 'cart.dart';
 
 class DetailPage extends StatelessWidget {
   static const routeName = '/product-detail';
@@ -13,7 +14,7 @@ class DetailPage extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 170, 140, 1),
+        title: Text(loadedPdt.name),
       ),
       body: Column(
         children: <Widget>[
@@ -22,23 +23,16 @@ class DetailPage extends StatelessWidget {
             width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.all(30),
-              child:
-              Image.network(loadedPdt.imgUrl),
+              child: Image.network(loadedPdt.imgUrl),
             ),
           ),
-          SizedBox(height:10),
-          Text(loadedPdt.name,
-            style: TextStyle(
-              fontSize: 16,
-            ),
-          ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Text(
 
-            'Price: \₹${loadedPdt.price}',
+            'Price: \$${loadedPdt.price}',
             style: TextStyle(
 
-              fontSize: 14,
+              fontSize: 20,
             ),
           ),
           SizedBox(height: 20),
@@ -55,7 +49,7 @@ class DetailPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromRGBO(0, 170, 140, 1),
+        
         onPressed: () {
           cart.addItem(productId, loadedPdt.name, loadedPdt.price);
         },

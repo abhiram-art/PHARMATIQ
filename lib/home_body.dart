@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/all_pdts.dart';
+//import '../widgets/category.dart';
+import 'all_pdts.dart';
 
 class HomeBody extends StatelessWidget {
   @override
@@ -8,15 +9,15 @@ class HomeBody extends StatelessWidget {
     return ListView(
       children: <Widget>[
         SizedBox(
-          height: 30,
+          height: 40,
         ),
         Center(
             child: Text(
           'Tablets',
-          style: TextStyle(fontSize: 30, fontFamily:'Varela'),
+          style: TextStyle(fontSize: 40, fontFamily:'Varela'),
         )),
         SizedBox(
-          height: 20,
+          height: 40,
         ),
          Padding(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),

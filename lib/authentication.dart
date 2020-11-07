@@ -8,9 +8,8 @@ import 'package:pharmatiq/config.dart';
 FirebaseAuth auth = FirebaseAuth.instance;
 final gooleSignIn = GoogleSignIn();
 
-// a simple sialog to be visible everytime some error occurs
 showErrDialog(BuildContext context, String err) {
-  // to hide the keyboard, if it is still p
+
   FocusScope.of(context).requestFocus(new FocusNode());
   return showDialog(
     context: context,

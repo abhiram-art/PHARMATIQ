@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmatiq/screens/homedesign.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -34,8 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 IconButton(
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.white,
-                  onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => DashboardPage()));},
+                  onPressed: () {},
                 ),
                 Container(
                     width: 155.0,

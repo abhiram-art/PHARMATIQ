@@ -29,7 +29,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {  Navigator.push(context,MaterialPageRoute(builder: (context) => DashboardPage()))},
           ),
           ListTile(
-            leading: Icon(Icons.account_circle_rounded),
+            leading: Icon(Icons.account_circle),
             title: Text('Profile' ,style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400),),
             onTap: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => profile()))},
           ),
