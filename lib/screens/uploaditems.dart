@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/screens/adminLogin.dart';
-import 'package:pharmatiq/screens/login.dart';
 import 'package:pharmatiq/screens/adminshiftorders.dart';
 
 class UploadPage extends StatefulWidget{
