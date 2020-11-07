@@ -7,6 +7,7 @@ import 'signup.dart';
 import 'homedesign.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:pharmatiq/authentication.dart';
+import 'adminLogin.dart';
 
 Future<void> main() async {
   runApp(MaterialApp(
@@ -38,6 +39,7 @@ class _HomePage2State extends State<HomePage2> {
     }
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -147,8 +149,8 @@ class _HomePage2State extends State<HomePage2> {
                           },
                           child: Text('Dont have an account? Signup',
                             style: TextStyle(
-                                color: Colors.black
-
+                                color: Colors.black ,
+                                fontSize: 15.0,
                             ),
                           ),
 
@@ -175,7 +177,9 @@ class _HomePage2State extends State<HomePage2> {
                                 ),
                                 child: Text('Login',
                                   style: TextStyle(
-                                      color: Colors.white
+                                      color: Colors.white,
+                                      fontSize: 17.0,
+                                      fontWeight: FontWeight.bold
                                   ),
                                 ),
                                 color: Color.fromRGBO(0, 170, 140, 2)
@@ -206,10 +210,23 @@ class _HomePage2State extends State<HomePage2> {
                                 height: 46,
                                 child: Image.asset('images/gicon.png'),
                               ),
-
                             ),
                           ],
-                        )
+                        ),
+                        Container(
+                            child: FlatButton(
+                                onPressed: (){
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                      builder: (context) => AdminPage()));
+                                },
+                                child: Text('Admin_Login',
+                                  style: TextStyle(
+                                      color: Colors.white
+                                  ),
+                                ),
+                                color: Color.fromRGBO(0, 170, 140, 2)
+                            ),
+                        ),
                       ],
                     )
 

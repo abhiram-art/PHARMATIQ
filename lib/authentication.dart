@@ -139,6 +139,7 @@ Future saveUserInfoToFireStore(FirebaseUser fUser) async
   await EcommerceApp.sharedPreferences.setString(EcommerceApp.userEmail, fUser.email);
   await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, ["garbageValue"]);
 }
+
 Future readData(FirebaseUser fUser) async
 {
   Firestore.instance.collection("users").document(fUser.uid).get().then((dataSnapshot) async {
