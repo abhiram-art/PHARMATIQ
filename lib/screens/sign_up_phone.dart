@@ -36,18 +36,23 @@ class _PhonePageState extends State<PhonePage> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Sign up with Phone'),
+        backgroundColor:Color.fromRGBO(0, 170, 140, 6),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            SizedBox(height: 60,),
             _signUpTextFormField(InputType.phone),
             AnimatedContainer(
                 height: _verificationId == null ? 0 : 80,
                 duration: const Duration(milliseconds: 400),
+
                 child: _verificationId != null ? _signUpTextFormField(InputType.sms) : Container()
             ),
+            SizedBox(height: 40,),
             _signUpButton(InputType.phone),
+
             AnimatedContainer(
                 height: _verificationId == null ? 0 : 74,
                 duration: const Duration(milliseconds: 400),
@@ -78,16 +83,18 @@ class _PhonePageState extends State<PhonePage> {
 
   Widget _signUpButton(InputType type){
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(7.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(12.0),
+          borderRadius: new BorderRadius.circular(20.0),
         ),
         padding: EdgeInsets.all(16),
-        textColor: type == InputType.phone ? Colors.black : Colors.white,
-        color: type == InputType.phone ? Colors.white : Colors.blue[900],
+        textColor: type == InputType.phone ? Colors.white : Colors.white,
+        color: type == InputType.phone ?  Color.fromRGBO(0, 170, 140, 2): Colors.white,
+        //Colors.green[400].withOpacity(0.62)
+            //: Colors.white,
         onPressed: () => type == InputType.phone ? _requestSMSCodeUsingPhoneNumber() : _signInWithPhoneNumberAndSMSCode(),
-        child: Text(type == InputType.phone ? 'Request SMS Code' : 'Sign in with SMS Code', style: TextStyle(fontSize: 20),),
+        child: Text(type == InputType.phone ? 'Request OTP' : 'Sign in with OTP', style: TextStyle(fontSize: 18),),
       ),
     );
   }

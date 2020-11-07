@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pharmatiq/my_button.dart';
+import 'package:pharmatiq/widgets/my_button.dart';
 import 'package:pharmatiq/orders.dart';
 import 'package:pharmatiq/widgets/NavDrawer.dart';
+import 'package:pharmatiq/widgets/my_button.dart';
 import 'package:provider/provider.dart';
 import 'cart.dart';
 import 'cart_item.dart';
