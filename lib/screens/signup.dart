@@ -170,7 +170,11 @@ class _SignHomeState extends State<SignHome> {
                           ),
                           child: FlatButton(
                               onPressed: (){
-                                handleSignup();
+                                if(password == confirmpassword){
+                                handleSignup();}
+                                else{
+                                  showErrDialog(context, 'password should match');
+                                }
                               },
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30)

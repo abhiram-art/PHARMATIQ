@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+//import 'package:pharmatiq/screens/uplaodItems.dart';
 import 'package:pharmatiq/widgets/NavDrawer.dart';
+import '../cart_screen.dart';
 import 'homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -42,7 +45,7 @@ class _DashboardPageState extends State<DashboardPage>
           //IconButton(icon:Icon( Icons.notifications_none,color:Colors.white), onPressed:(){}),
           //NotificationButton(),
           IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,),
-              onPressed: null)
+              onPressed: ()=>Navigator.of(context).pushNamed(CartScreen.routeName))
 
 
         ],

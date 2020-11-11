@@ -69,7 +69,7 @@ class _HomePage2State extends State<HomePage2> {
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(left: 30, top: 100, right: 30, bottom: 59),
+                    padding: EdgeInsets.only(left: 30, top: 50, right: 30, bottom: 59),
                     child: Column(
                       children: <Widget>[
                         Container(
