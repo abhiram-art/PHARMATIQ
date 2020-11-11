@@ -39,6 +39,8 @@ dependencies:
   badges:
   provider: ^4.0.4
   shared_preferences: ^0.5.12+2
+  image_picker: ^0.6.7+12
+  firebase_storage:
 
 dev_dependencies:
   flutter_test:
