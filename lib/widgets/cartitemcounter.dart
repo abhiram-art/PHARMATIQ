@@ -1,8 +1,5 @@
-//import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pharmatiq/config.dart';
-
-
 
 class CartItemCounter extends ChangeNotifier
 {

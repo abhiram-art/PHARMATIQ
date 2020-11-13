@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pharmatiq/Store/storehome.dart';
 import 'package:pharmatiq/widgets/NavDrawer.dart';
-import 'cart_screen.dart';
-import 'homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'signup.dart';
-//import 'package:pharmatiq/notification_button.dart';
 
 class DashboardPage extends StatefulWidget {
   final String uid;
@@ -44,7 +42,8 @@ class _DashboardPageState extends State<DashboardPage>
           //IconButton(icon:Icon( Icons.notifications_none,color:Colors.white), onPressed:(){}),
           //NotificationButton(),
           IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,),
-              onPressed: ()=>Navigator.of(context).pushNamed(CartScreen.routeName))
+              onPressed : (){}
+          )
 
 
         ],
@@ -162,7 +161,7 @@ class _DashboardPageState extends State<DashboardPage>
               onTap: () {
                 //ToDo
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => HomePage1()
+                    builder: (context) => StoreHome()
 
                 ));
               },

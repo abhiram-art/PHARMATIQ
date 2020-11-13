@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/all_pdts.dart';
+
 
 class HomeBody extends StatelessWidget {
   @override
@@ -36,8 +36,6 @@ class HomeBody extends StatelessWidget {
         SizedBox(
           height: 50,
         ),
-
-        AllProducts()
       ],
     );
   }
