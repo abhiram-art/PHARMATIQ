@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/cart.dart';
+import 'package:pharmatiq/Store/product_page.dart';
 import 'package:pharmatiq/Store/searchBox.dart';
 import 'package:pharmatiq/item.dart';
 import 'package:pharmatiq/widgets/cartitemcounter.dart';
@@ -98,6 +99,11 @@ class _StoreHomeState extends State<StoreHome>
 Widget sourceInfo(ItemModel model, BuildContext context,{Color background , removeCartFunction})
 {
   return InkWell(
+    onTap: ()
+    {
+      Route route = MaterialPageRoute(builder: (c) => ProductPage(itemModel: model));
+      Navigator.pushReplacement(context, route);
+    },
     splashColor: Colors.black,
     child: Padding(
       padding: EdgeInsets.all(6.0),

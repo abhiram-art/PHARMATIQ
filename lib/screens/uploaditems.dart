@@ -146,7 +146,7 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
           ),
         ),
        leading: IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,),onPressed: clearFormInfo),
-        title: Text("New Prodect", style: TextStyle(color: Colors.white,fontSize: 24.0,fontWeight: FontWeight.bold),),
+        title: Text("New Product", style: TextStyle(color: Colors.white,fontSize: 24.0,fontWeight: FontWeight.bold),),
         actions: [
           FlatButton(
             onPressed: uploading ? null : () =>  uploadImageAndSaveItemInfo(),
