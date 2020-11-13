@@ -1,30 +1,33 @@
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EcommerceApp
 {
-    static const String appName = 'pharmatiq';
+    static const String appName = 'e-Shop';
 
     static SharedPreferences sharedPreferences;
-    static FirebaseUser User;
+    static FirebaseUser user;
     static FirebaseAuth auth;
-    static Firestore firestore;
+    static Firestore firestore ;
 
-    static String collectionUser = "User";
-    static String collectionOrder ="orders";
-    static String userCartList = "userCart";
-    static String subCollectionAddress = "useraddress";
+    static String collectionUser = "users";
+    static String collectionOrders = "orders";
+    static String userCartList = 'userCart';
+    static String subCollectionAddress = 'userAddress';
 
-    //static final String userName = 'name';
+    static final String userName = 'name';
     static final String userEmail = 'email';
-    static final String useruid = 'uid';
+    static final String userPhotoUrl = 'photoUrl';
+    static final String userUID = 'uid';
+    static final String userAvatarUrl = 'url';
 
-    static final String addressid = 'addressid';
+    static final String addressID = 'addressID';
     static final String totalAmount = 'totalAmount';
-    static final String productId = 'productId';
-    static final String paymentDetails = 'payementDetails';
-    static final String orderTime = 'orderTime';
-    static final String isSuccess = 'isSuccess';
+    static final String productID = 'productIDs';
+    static final String paymentDetails ='paymentDetails';
+    static final String orderTime ='orderTime';
+    static final String isSuccess ='isSuccess';
 
 }

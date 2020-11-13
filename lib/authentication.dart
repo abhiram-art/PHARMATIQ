@@ -128,7 +128,7 @@ Future<bool> signOutUser() async {
 
 Future saveUserInfoToFireStore(FirebaseUser fUser) async
 {
-  Firestore.instance.collection("user").document(fUser.uid).setData
+  Firestore.instance.collection("users").document(fUser.uid).setData
     ({
     "uid" : fUser.uid,
     "email" : fUser.email,
@@ -142,9 +142,9 @@ Future saveUserInfoToFireStore(FirebaseUser fUser) async
 Future readData(FirebaseUser fUser) async
 {
   Firestore.instance.collection("users").document(fUser.uid).get().then((dataSnapshot) async {
-    await EcommerceApp.sharedPreferences.setStringList("uid" , dataSnapshot.data[EcommerceApp.useruid]);
+    await EcommerceApp.sharedPreferences.setStringList("uid" , dataSnapshot.data[EcommerceApp.userUID]);
     await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userEmail , dataSnapshot.data[EcommerceApp.userEmail]);
-    List<String> cartlist = dataSnapshot.data[EcommerceApp.userCartList].cast<String>();
-    await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, cartlist);
+    List<String> cartList = dataSnapshot.data[EcommerceApp.userCartList].cast<String>();
+    await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, cartList);
   });
 }

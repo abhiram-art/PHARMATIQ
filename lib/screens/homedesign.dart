@@ -159,11 +159,8 @@ class _DashboardPageState extends State<DashboardPage>
           child:
           InkWell(
               onTap: () {
-                //ToDo
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => StoreHome()
-
-                ));
+                Route route = MaterialPageRoute(builder: (c) => StoreHome());
+                Navigator.pushReplacement(context, route);
               },
               child: Container(
                   height: 175.0,

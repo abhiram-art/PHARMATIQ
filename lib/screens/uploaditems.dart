@@ -271,7 +271,7 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
     itemsRef.document(productId).setData({
       "shortInfo" : _shortInfoTextEditingController.text.trim(),
       "longDescription" : _descripitionTextEditingController.text.trim(),
-      "price" : _priceTextEditingController.text.trim(),
+      "price" : int.parse(_priceTextEditingController.text),
       "publishedDare" : DateTime.now(),
       "status" : "available",
       "thumbnailUrl" : downloadUrl,
