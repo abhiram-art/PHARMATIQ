@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/cart.dart';
 import 'package:pharmatiq/Store/product_page.dart';
 import 'package:pharmatiq/Store/searchBox.dart';
+import 'package:pharmatiq/config.dart';
 import 'package:pharmatiq/item.dart';
-import 'package:pharmatiq/screens/homedesign.dart';
 import 'package:pharmatiq/widgets/cartitemcounter.dart';
 import 'package:pharmatiq/widgets/loadingwidget.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-import '../main.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 double width;
 
@@ -28,17 +27,9 @@ class _StoreHomeState extends State<StoreHome>
     return SafeArea(
       child: Scaffold(
         appBar: AppBar (
-          automaticallyImplyLeading: false,
-          leading:GestureDetector(
-            onTap: () {Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => DashboardPage()));},
-            child: Icon(
-              Icons.arrow_back,
-            ),
-          ),
           flexibleSpace: Container(
             decoration: new BoxDecoration(
-                color: Color.fromRGBO(0, 170, 140, 1),
+              color: Color.fromRGBO(0, 170, 140, 1),
             ),
           ),
           actions: [
@@ -64,7 +55,7 @@ class _StoreHomeState extends State<StoreHome>
                         top: 3.0,
                         bottom: 4.0,
                         child: Consumer<CartItemCounter>(
-                          builder: (context, counter, count)
+                          builder: (context, counter, _)
                           {
                             return Text(
                               counter.count.toString(),
@@ -90,15 +81,15 @@ class _StoreHomeState extends State<StoreHome>
                 return !dataSnapshot.hasData
                     ? SliverToBoxAdapter(child: Center(child: circularProgress(),),)
                     : SliverStaggeredGrid.countBuilder(
-                        crossAxisCount: 1,
-                        staggeredTileBuilder: (c) => StaggeredTile.fit(1),
-                        itemBuilder: (context , index)
-                        {
-                           ItemModel model =ItemModel.fromJson(dataSnapshot.data.documents[index].data);
-                           return sourceInfo(model , context);
-                        },
+                  crossAxisCount: 1,
+                  staggeredTileBuilder: (c) => StaggeredTile.fit(1),
+                  itemBuilder: (context , index)
+                  {
+                    ItemModel model =ItemModel.fromJson(dataSnapshot.data.documents[index].data);
+                    return sourceInfo(model , context);
+                  },
                   itemCount: dataSnapshot.data.documents.length,
-                     );
+                );
               },
             ),
           ],
@@ -156,8 +147,8 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.green
+                            shape: BoxShape.rectangle,
+                            color: Colors.green
                         ),
                         alignment: Alignment.topLeft,
                         width: 40.0,
@@ -170,7 +161,7 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
                                 "50%",style: TextStyle(fontSize: 15.0, color: Colors.white, fontWeight: FontWeight.normal),
                               ),
                               Text(
-                                  "OFF" ,style: TextStyle(fontSize: 12.0, color: Colors.white, fontWeight: FontWeight.normal),
+                                "OFF" ,style: TextStyle(fontSize: 12.0, color: Colors.white, fontWeight: FontWeight.normal),
                               ),
                             ],
                           ),
@@ -185,19 +176,19 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
                             child: Row(
                               children: [
                                 Text(
-                                    r"Original Price: ₹",
+                                  r"Original Price: ₹",
                                   style: TextStyle(
                                     fontSize: 14.0,
                                     color: Colors.blueGrey,
-                                      decoration: TextDecoration.lineThrough,
+                                    decoration: TextDecoration.lineThrough,
                                   ),
                                 ),
                                 Text(
                                   (model.price + model.price).toString(),
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.blueGrey,
-                                      decoration: TextDecoration.lineThrough,
+                                    fontSize: 15.0,
+                                    color: Colors.blueGrey,
+                                    decoration: TextDecoration.lineThrough,
                                   ),
                                 ),
                               ],
@@ -234,6 +225,24 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
                     ),
                   ),
                   //to implement the cart item remove feature
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: removeCartFunction == null
+                        ? IconButton(
+                      icon: Icon(Icons.add_shopping_cart , color:  Colors.green,),
+                      onPressed: ()
+                      {
+                        checkItemInCart(model.shortInfo , context);
+                      },
+                    )
+                        : IconButton(
+                      icon: Icon(Icons.delete, color: Colors.green,),
+                    ),
+                  ),
+                  Divider(
+                    height: 5.0,
+                    color: Colors.black,
+                  ),
                 ],
               ),
             ),
@@ -242,4 +251,31 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
       ),
     ),
   );
+}
+
+Widget card({Color primaryColor = Colors.redAccent, String imgPath}){
+  return Container();
+}
+
+void checkItemInCart(String shortInfoAsId , BuildContext context)
+{
+  EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList).contains(shortInfoAsId)
+      ? Fluttertoast.showToast(msg: "Item is already in Cart")
+      : addItemToCart(shortInfoAsId, context);
+}
+
+addItemToCart(String shortInfoId, BuildContext context)
+{
+  List tempCartList = EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList);
+  tempCartList.add(shortInfoId);
+
+  EcommerceApp.firestore.collection(EcommerceApp.collectionUser)
+      .document(EcommerceApp.sharedPreferences.getString(EcommerceApp.userUID))
+      .updateData({
+    EcommerceApp.userCartList : tempCartList,
+  }).then((v){
+    Fluttertoast.showToast(msg: "Item Addd To Cart Successfully.");
+    EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList,tempCartList );
+    Provider.of<CartItemCounter>(context , listen: false).displayResult();
+  });
 }

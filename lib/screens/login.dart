@@ -31,6 +31,8 @@ class _HomePage2State extends State<HomePage2> {
   void login() {
     signin(email, password, context).then((value) {
       if (value != null) {
+        readData(value).then((s){
+        });
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
