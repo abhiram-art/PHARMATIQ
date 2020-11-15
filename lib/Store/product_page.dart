@@ -55,17 +55,17 @@ class _ProductPageState extends State<ProductPage> {
                             widget.itemModel.title,
                             style: boldTextStyle,
                           ),
-                          SizedBox(height: 25.0,),
+                          SizedBox(height: 10.0,),
                           Text(
                             widget.itemModel.longDescription,
                             style: boldTextStyle,
                           ),
-                          SizedBox(height: 25.0,),
+                          SizedBox(height: 10.0,),
                           Text(
                             " ₹ " + widget.itemModel.price.toString(),
                             style: boldTextStyle,
                           ),
-                          SizedBox(height: 50.0,),
+                          SizedBox(height: 10.0,),
                         ],
                       ),
                     ),
@@ -74,18 +74,16 @@ class _ProductPageState extends State<ProductPage> {
                     padding: EdgeInsets.only(top: 8.0),
                     child: Center(
                       child: InkWell(
-                        onTap: () => print("clicked"),
+                        onTap: () => checkItemInCart(widget.itemModel.shortInfo, context),
                         child: Container(
                           decoration: new BoxDecoration(
                             color: Color.fromRGBO(0, 170, 140, 1),
-
                           ),
                           width: MediaQuery.of(context).size.width - 40.0,
                           height: 50.0,
                           child: Center(
                             child: Text("Add to Cart" , style: TextStyle(color: Colors.white),),
                           ),
-
                         ),
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/screens/splashscreen.dart';
+import 'package:pharmatiq/widgets/ItemQuantity.dart';
 import 'package:pharmatiq/widgets/cartitemcounter.dart';
 import 'package:pharmatiq/widgets/changeAddress.dart';
 import 'package:pharmatiq/widgets/totalMoney.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
             create: (context)=>CartItemCounter()
         ),
         ChangeNotifierProvider(
-            create: (context)=>CartItemCounter()
+            create: (context)=> ItemQuantity()
         ),
         ChangeNotifierProvider(
             create: (context)=>AddressChanger()
