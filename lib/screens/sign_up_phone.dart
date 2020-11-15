@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pharmatiq/screens/homedesign.dart';
+import 'package:pharmatiq/screens/login.dart';
 
 
 void main() => runApp(MyApp());
@@ -35,7 +37,15 @@ class _PhonePageState extends State<PhonePage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         title: Text('Sign up with Phone'),
+        leading:GestureDetector(
+          onTap: () {Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => HomePage2()));},
+          child: Icon(
+            Icons.arrow_back,
+          ),
+        ),
         backgroundColor:Color.fromRGBO(0, 170, 140, 6),
       ),
       body: Center(
@@ -122,6 +132,8 @@ class _PhonePageState extends State<PhonePage> {
     setState(() => _verificationId = null);
     FocusScope.of(context).requestFocus(FocusNode());
     _showSnackBar('Sign up with phone success. Check your firebase.');
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => DashboardPage()));
   }
 
   void _showSnackBar(msg){

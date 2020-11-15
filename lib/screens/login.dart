@@ -234,7 +234,9 @@ class _HomePage2State extends State<HomePage2> {
                                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                                       builder: (context) => AdminPage()));
                                 },
-                                child: Text('Admin_Login',
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                                child: Text('Admin Login',
                                   style: TextStyle(
                                       color: Colors.white
                                   ),
