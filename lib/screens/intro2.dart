@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pharmatiq/screens/addpage.dart';
 import 'package:pharmatiq/screens/homedesign.dart';
 import 'package:pharmatiq/screens/login.dart';
 class Intro2 extends StatelessWidget {
@@ -62,7 +63,7 @@ class Intro2 extends StatelessWidget {
                     child: FlatButton(
                         onPressed: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(
-                              builder: (context) => HomePage2()));
+                              builder: (context) => AddPage()));
                         },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)
