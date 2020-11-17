@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-//import 'services/crud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pharmatiq/authentication.dart';
 import 'package:pharmatiq/screens/homedesign.dart';
 
 class AddPage extends StatefulWidget {
@@ -34,32 +32,21 @@ class _AddPageState extends State<AddPage> {
 
   String docid;
   String fname;
-  String job;
-  String job_desc;
   String addr;
   String mob;
-  String req;
 
   //crudMethods crudObj = new crudMethods();
 
-  Map<String, String> jobData = Map();
+ // Map<String, String> jobData = Map();
 
-  void addSearchkey(String jobname) {
-    List<String> splitList = jobname.split(" ");
-    List<String> indexList = [];
-
-    for(int i = 0; i < splitList.length; i++) {
-      for(int j = 1; j < splitList[i].length + 1; j++) {
-        indexList.add(splitList[i].substring(0, j).toLowerCase());
-      }
-    }
-
-    DocumentReference documentReference = database.collection('Jobs').document();
-    documentReference.setData({'Full Name': this.fname, 'Job': this.job, 'Job Description': this.job_desc, 'Mobile': this.mob, 'Address': this.addr,
-      'Requirements': this.req, 'searchIndex': indexList, 'uid': this.uid});
+  void addSearchkey() {
+    DocumentReference documentReference = database.collection('Profile').document();
+    documentReference.setData({'Full Name': this.fname, 'Mobile': this.mob, 'Address': this.addr,});
 
     print(documentReference.documentID);
     docid = documentReference.documentID;
+
+    Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => DashboardPage()));
   }
 
   String sendDocument() {
@@ -98,7 +85,7 @@ class _AddPageState extends State<AddPage> {
                                 borderSide: BorderSide(color: Colors.green))),
                         onChanged: (value) {
                           setState(() {
-                            //fname = value;
+                            fname = value;
                           });
                         }
                     ),
@@ -122,7 +109,7 @@ class _AddPageState extends State<AddPage> {
                                 borderSide: BorderSide(color: Colors.green))),
                         onChanged: (value) {
                           setState(() {
-                            //addr = value;
+                            addr = value;
                           });
                         }
                     ),
@@ -141,7 +128,7 @@ class _AddPageState extends State<AddPage> {
                                 borderSide: BorderSide(color: Colors.green))),
                         onChanged: (value) {
                           setState(() {
-                            //mob = value;
+                            mob = value;
                           });
                         }
                     ),
@@ -156,8 +143,7 @@ class _AddPageState extends State<AddPage> {
                           child: GestureDetector(
                             onTap: () {
                               //Navigator.pushNamed(context, '/homepage');
-                              //addSearchkey(addController.text);
-                              Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => DashboardPage()));
+                              addSearchkey();
                             },
                             child: Center(
                               child: Text(
