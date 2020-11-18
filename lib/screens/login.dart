@@ -189,7 +189,7 @@ class _HomePage2State extends State<HomePage2> {
                                 color: Color.fromRGBO(0, 170, 140, 2)
                             )
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: 20,),
                         Container(
                             child: Center(
                               child: Text('or login with'),
@@ -231,7 +231,7 @@ class _HomePage2State extends State<HomePage2> {
 
                           ],
                         ),
-                        SizedBox(height: 14),
+                        SizedBox(height: 10),
                         Container(
                             child: FlatButton(
                                 onPressed: (){

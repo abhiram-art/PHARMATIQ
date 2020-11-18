@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/cart.dart';
@@ -268,7 +269,29 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
 }
 
 Widget card({Color primaryColor = Colors.redAccent, String imgPath}){
-  return Container();
+  return Container(
+    height: 150.0,
+    width: width = 34,
+    margin: EdgeInsets.symmetric(horizontal: 10 , vertical: 10),
+    decoration: BoxDecoration
+      (
+      color: primaryColor,
+      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      boxShadow: <BoxShadow>[
+        BoxShadow(offset: Offset(0,5),blurRadius: 10.0, color: Colors.grey[200]),
+      ]
+    ),
+    child: ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular((20.0))),
+      child: Image.network(
+        imgPath,
+        height: 150.0,
+        width: width = 34,
+        fit: BoxFit.fill,
+      )
+    )
+  );
+
 }
 
 void checkItemInCart(String shortInfoAsId , BuildContext context)
@@ -289,7 +312,7 @@ addItemToCart(String shortInfoId, BuildContext context)
       .updateData({
     EcommerceApp.userCartList : tempCartList,
   }).then((v){
-    Fluttertoast.showToast(msg: "Item Addd To Cart Successfully.");
+    Fluttertoast.showToast(msg: "Item Added To Cart Successfully.");
     EcommerceApp.cartList = tempCartList;
     Provider.of<CartItemCounter>(context , listen: false).displayResult();
   });
