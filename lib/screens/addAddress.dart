@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class AddAddress extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
-  final scafflodKey = GlobalKey<ScaffoldState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   final cName = TextEditingController();
   final cPhoneNumber = TextEditingController();
   final cFlatHomeNumber = TextEditingController();
@@ -19,7 +19,7 @@ class AddAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: scafflodKey,
+        key: scaffoldKey,
         appBar: MyAppBar(),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: ()
