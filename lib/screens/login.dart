@@ -210,7 +210,7 @@ class _HomePage2State extends State<HomePage2> {
                               },
                               child:
                               Container(
-                                width: 50,
+                                width: 60,
                                 height: 46,
                                 child: Image.asset('images/gicon.png'),
                               ),
@@ -222,7 +222,7 @@ class _HomePage2State extends State<HomePage2> {
                               },
                               child:
                               Container(
-                                width: 50,
+                                width: 60,
                                 height: 46,
                                 child: Image.asset('images/phone.png'),
                               ),
@@ -231,6 +231,7 @@ class _HomePage2State extends State<HomePage2> {
 
                           ],
                         ),
+                        SizedBox(height: 14),
                         Container(
                             child: FlatButton(
                                 onPressed: (){

@@ -146,18 +146,36 @@ class _AddPageState extends State<AddPage> {
                               //Navigator.pushNamed(context, '/homepage');
                               addSearchkey();
                             },
-                            child: Center(
-                              child: Text(
-                                'ADD',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'Montserrat'),
+                            //child: Center(
+                              child: FlatButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                        builder: (context) => HomePage2()));
+                                  },
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30)
+                                  ),
+                                  child: Text('Add Details',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 17.0,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                  color: Color.fromRGBO(0, 170, 140, 2)
+                              )
+                              // Text(
+                               // 'ADD',
+                               // style: TextStyle(
+                                   // color: Colors.white,
+                                   // fontWeight: FontWeight.bold,
+                                   // fontFamily: 'Montserrat'),
                               ),
                             ),
                           ),
-                        )),
-                    SizedBox(height: 20.0),
+                        //),
+
+                     SizedBox(height: 20.0),
                    // Container(
                       //height: 40.0,
                      // color: Colors.transparent,
