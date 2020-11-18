@@ -2,6 +2,7 @@ import 'package:pharmatiq/Store/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/storehome.dart';
 import 'package:pharmatiq/config.dart';
+import 'package:pharmatiq/screens/homedesign.dart';
 import 'package:pharmatiq/widgets/cartitemcounter.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget
       automaticallyImplyLeading: false,
       leading:GestureDetector(
         onTap: () {Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => StoreHome()));},
+            builder: (context) => DashboardPage()));},
         child: Icon(
           Icons.arrow_back,
         ),
@@ -59,7 +60,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget
                   Positioned(
                     top: 3.0,
                     bottom: 4.0,
-                    left: 4.0,
+                    left: 8.0,
                     child:Consumer<CartItemCounter>(
                       builder:(context,counter,_){
                         return Text(

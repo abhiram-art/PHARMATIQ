@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pharmatiq/Store/cart.dart';
 import 'package:pharmatiq/Store/storehome.dart';
 import 'package:pharmatiq/widgets/NavDrawer.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +43,9 @@ class _DashboardPageState extends State<DashboardPage>
           //IconButton(icon:Icon( Icons.notifications_none,color:Colors.white), onPressed:(){}),
           //NotificationButton(),
           IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,),
-              onPressed : (){}
+              onPressed : (){
+                Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => CartPage()));
+              }
           )
 
 

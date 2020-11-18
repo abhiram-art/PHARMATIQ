@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pharmatiq/screens/homedesign.dart';
+import 'package:pharmatiq/screens/login.dart';
 
 class AddPage extends StatefulWidget {
   @override
@@ -46,7 +47,7 @@ class _AddPageState extends State<AddPage> {
     print(documentReference.documentID);
     docid = documentReference.documentID;
 
-    Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => DashboardPage()));
+    Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => HomePage2()));
   }
 
   String sendDocument() {

@@ -6,6 +6,7 @@ import 'package:pharmatiq/Store/product_page.dart';
 import 'package:pharmatiq/Store/searchBox.dart';
 import 'package:pharmatiq/config.dart';
 import 'package:pharmatiq/item.dart';
+import 'package:pharmatiq/screens/homedesign.dart';
 import 'package:pharmatiq/widgets/cartitemcounter.dart';
 import 'package:pharmatiq/widgets/loadingwidget.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +28,14 @@ class _StoreHomeState extends State<StoreHome>
     return SafeArea(
       child: Scaffold(
         appBar: AppBar (
+          automaticallyImplyLeading: false,
+          leading:GestureDetector(
+            onTap: () {Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => DashboardPage()));},
+            child: Icon(
+              Icons.arrow_back,
+            ),
+          ),
           flexibleSpace: Container(
             decoration: new BoxDecoration(
               color: Color.fromRGBO(0, 170, 140, 1),
