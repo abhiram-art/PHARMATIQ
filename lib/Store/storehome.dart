@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/cart.dart';
 import 'package:pharmatiq/Store/product_page.dart';
@@ -49,7 +48,7 @@ class _StoreHomeState extends State<StoreHome>
                       Icon(
                         Icons.brightness_1,
                         size: 20.0,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                       Positioned(
                         top: 3.0,
@@ -236,7 +235,9 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
                       },
                     )
                         : IconButton(
-                      icon: Icon(Icons.delete, color: Colors.green,),
+                      icon: Icon(Icons.delete, color: Colors.green,), onPressed: () {
+
+                    },
                     ),
                   ),
                   Divider(
@@ -259,23 +260,24 @@ Widget card({Color primaryColor = Colors.redAccent, String imgPath}){
 
 void checkItemInCart(String shortInfoAsId , BuildContext context)
 {
-  EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList).contains(shortInfoAsId)
+  print(EcommerceApp.cartList);
+  EcommerceApp.cartList.contains(shortInfoAsId)
       ? Fluttertoast.showToast(msg: "Item is already in Cart")
       : addItemToCart(shortInfoAsId, context);
 }
 
 addItemToCart(String shortInfoId, BuildContext context)
 {
-  List tempCartList = EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList);
+  List tempCartList = EcommerceApp.cartList;
   tempCartList.add(shortInfoId);
 
-  EcommerceApp.firestore.collection(EcommerceApp.collectionUser)
-      .document(EcommerceApp.sharedPreferences.getString(EcommerceApp.userUID))
+  Firestore.instance.collection("users")
+      .document(EcommerceApp.userUID)
       .updateData({
     EcommerceApp.userCartList : tempCartList,
   }).then((v){
     Fluttertoast.showToast(msg: "Item Addd To Cart Successfully.");
-    EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList,tempCartList );
+    EcommerceApp.cartList = tempCartList;
     Provider.of<CartItemCounter>(context , listen: false).displayResult();
   });
 }

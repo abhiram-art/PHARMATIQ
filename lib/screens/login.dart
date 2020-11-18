@@ -29,9 +29,10 @@ class _HomePage2State extends State<HomePage2> {
   GlobalKey<FormState> formkey = GlobalKey <FormState>();
 
   void login() {
+    Authentication a = new Authentication();
     signin(email, password, context).then((value) {
       if (value != null) {
-        readData(value).then((s){
+        a.readData(value).then((s){
         });
         Navigator.pushReplacement(
             context,

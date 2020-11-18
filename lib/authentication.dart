@@ -5,146 +5,155 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pharmatiq/config.dart';
 
-FirebaseAuth auth = FirebaseAuth.instance;
-final gooleSignIn = GoogleSignIn();
 
-showErrDialog(BuildContext context, String err) {
 
-  FocusScope.of(context).requestFocus(new FocusNode());
-  return showDialog(
-    context: context,
-    child: AlertDialog(
-      title: Text("Error"),
-      content: Text(err),
-      actions: <Widget>[
-        OutlineButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text("Ok"),
-        ),
-      ],
-    ),
-  );
-}
+  FirebaseAuth auth = FirebaseAuth.instance;
+  final gooleSignIn = GoogleSignIn();
+
+  showErrDialog(BuildContext context, String err) {
+    FocusScope.of(context).requestFocus(new FocusNode());
+    return showDialog(
+      context: context,
+      child: AlertDialog(
+        title: Text("Error"),
+        content: Text(err),
+        actions: <Widget>[
+          OutlineButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text("Ok"),
+          ),
+        ],
+      ),
+    );
+  }
 
 // many unhandled google error exist
 // will push them soon
-Future<bool> googleSignIn() async {
-  GoogleSignInAccount googleSignInAccount = await gooleSignIn.signIn();
+  Future<bool> googleSignIn() async {
+    GoogleSignInAccount googleSignInAccount = await gooleSignIn.signIn();
 
-  if (googleSignInAccount != null) {
-    GoogleSignInAuthentication googleSignInAuthentication =
-    await googleSignInAccount.authentication;
+    if (googleSignInAccount != null) {
+      GoogleSignInAuthentication googleSignInAuthentication =
+      await googleSignInAccount.authentication;
 
-    AuthCredential credential = GoogleAuthProvider.getCredential(
-        idToken: googleSignInAuthentication.idToken,
-        accessToken: googleSignInAuthentication.accessToken);
+      AuthCredential credential = GoogleAuthProvider.getCredential(
+          idToken: googleSignInAuthentication.idToken,
+          accessToken: googleSignInAuthentication.accessToken);
 
-    AuthResult result = await auth.signInWithCredential(credential);
+      AuthResult result = await auth.signInWithCredential(credential);
 
-    FirebaseUser user = await auth.currentUser();
-    print(user.uid);
+      FirebaseUser user = await auth.currentUser();
+      print(user.uid);
 
-    return Future.value(true);
+      return Future.value(true);
+    }
   }
-}
 
 // instead of returning true or false
 // returning user to directly access UserID
-Future<FirebaseUser> signin(
-    String email, String password, BuildContext context) async {
-  try {
-    AuthResult result =
-    await auth.signInWithEmailAndPassword(email: email, password: email);
-    FirebaseUser user = result.user;
-    // return Future.value(true);
-    return Future.value(user);
-  } catch (e) {
-    // simply passing error code as a message
-    print(e.code);
-    switch (e.code) {
-      case 'ERROR_INVALID_EMAIL':
-        showErrDialog(context, e.code);
-        break;
-      case 'ERROR_WRONG_PASSWORD':
-        showErrDialog(context, e.code);
-        break;
-      case 'ERROR_USER_NOT_FOUND':
-        showErrDialog(context, e.code);
-        break;
-      case 'ERROR_USER_DISABLED':
-        showErrDialog(context, e.code);
-        break;
-      case 'ERROR_TOO_MANY_REQUESTS':
-        showErrDialog(context, e.code);
-        break;
-      case 'ERROR_OPERATION_NOT_ALLOWED':
-        showErrDialog(context, e.code);
-        break;
+  Future<FirebaseUser> signin(String email, String password,
+      BuildContext context) async {
+    try {
+      AuthResult result =
+      await auth.signInWithEmailAndPassword(email: email, password: email);
+      FirebaseUser user = result.user;
+      // return Future.value(true);
+      return Future.value(user);
+    } catch (e) {
+      // simply passing error code as a message
+      print(e.code);
+      switch (e.code) {
+        case 'ERROR_INVALID_EMAIL':
+          showErrDialog(context, e.code);
+          break;
+        case 'ERROR_WRONG_PASSWORD':
+          showErrDialog(context, e.code);
+          break;
+        case 'ERROR_USER_NOT_FOUND':
+          showErrDialog(context, e.code);
+          break;
+        case 'ERROR_USER_DISABLED':
+          showErrDialog(context, e.code);
+          break;
+        case 'ERROR_TOO_MANY_REQUESTS':
+          showErrDialog(context, e.code);
+          break;
+        case 'ERROR_OPERATION_NOT_ALLOWED':
+          showErrDialog(context, e.code);
+          break;
+      }
+      // since we are not actually continuing after displaying errors
+      // the false value will not be returned
+      // hence we don't have to check the valur returned in from the signin function
+      // whenever we call it anywhere
+      return Future.value(null);
     }
-    // since we are not actually continuing after displaying errors
-    // the false value will not be returned
-    // hence we don't have to check the valur returned in from the signin function
-    // whenever we call it anywhere
-    return Future.value(null);
   }
-}
 
 // change to Future<FirebaseUser> for returning a user
-Future<FirebaseUser> signUp(
-    String email, String password, BuildContext context) async {
-  try {
-    AuthResult result = await auth.createUserWithEmailAndPassword(
-        email: email, password: email);
-    FirebaseUser user = result.user;
-    return Future.value(user);
-    // return Future.value(true);
-  } catch (error) {
-    switch (error.code) {
-      case 'ERROR_EMAIL_ALREADY_IN_USE':
-        showErrDialog(context, "Email Already Exists");
-        break;
-      case 'ERROR_INVALID_EMAIL':
-        showErrDialog(context, "Invalid Email Address");
-        break;
-      case 'ERROR_WEAK_PASSWORD':
-        showErrDialog(context, "Please Choose a stronger password");
-        break;
+  Future<FirebaseUser> signUp(String email, String password,
+      BuildContext context) async {
+    try {
+      AuthResult result = await auth.createUserWithEmailAndPassword(
+          email: email, password: email);
+      FirebaseUser user = result.user;
+      return Future.value(user);
+      // return Future.value(true);
+    } catch (error) {
+      switch (error.code) {
+        case 'ERROR_EMAIL_ALREADY_IN_USE':
+          showErrDialog(context, "Email Already Exists");
+          break;
+        case 'ERROR_INVALID_EMAIL':
+          showErrDialog(context, "Invalid Email Address");
+          break;
+        case 'ERROR_WEAK_PASSWORD':
+          showErrDialog(context, "Please Choose a stronger password");
+          break;
+      }
+      return Future.value(null);
     }
-    return Future.value(null);
   }
-}
 
-Future<bool> signOutUser() async {
-  FirebaseUser user = await auth.currentUser();
-  print(user.providerData[1].providerId);
-  if (user.providerData[1].providerId == 'google.com') {
-    await gooleSignIn.disconnect();
+  Future<bool> signOutUser() async {
+    FirebaseUser user = await auth.currentUser();
+    print(user.providerData[1].providerId);
+    if (user.providerData[1].providerId == 'google.com') {
+      await gooleSignIn.disconnect();
+    }
+    await auth.signOut();
+    return Future.value(true);
   }
-  await auth.signOut();
-  return Future.value(true);
-}
 
-Future saveUserInfoToFireStore(FirebaseUser fUser) async
-{
-  Firestore.instance.collection("users").document(fUser.uid).setData
-    ({
-    "uid" : fUser.uid,
-    "email" : fUser.email,
-    EcommerceApp.userCartList: ["garbageValue"],
-  });
-  await EcommerceApp.sharedPreferences.setString('uid', fUser.uid);
-  await EcommerceApp.sharedPreferences.setString(EcommerceApp.userEmail, fUser.email);
-  await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, ["garbageValue"]);
-}
+  Future saveUserInfoToFireStore(FirebaseUser fUser) async
+  {
+    Firestore.instance.collection("users").document(fUser.uid).setData
+      ({
+      "uid": fUser.uid,
+      "email": fUser.email,
+      EcommerceApp.userCartList: ["garbageValue"],
+    });
+    await EcommerceApp.sharedPreferences.setString('uid', fUser.uid);
+    await EcommerceApp.sharedPreferences.setString(
+        EcommerceApp.userEmail, fUser.email);
+    await EcommerceApp.sharedPreferences.setStringList(
+        EcommerceApp.userCartList, ["garbageValue"]);
+  }
 
-Future readData(FirebaseUser fUser) async
-{
-  Firestore.instance.collection("users").document(fUser.uid).get().then((dataSnapshot) async {
-    await EcommerceApp.sharedPreferences.setStringList("uid" , dataSnapshot.data[EcommerceApp.userUID]);
-    await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userEmail , dataSnapshot.data[EcommerceApp.userEmail]);
-    List<String> cartList = dataSnapshot.data[EcommerceApp.userCartList].cast<String>();
-    await EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, cartList);
-  });
+class Authentication {
+
+  readData(FirebaseUser fUser) async
+  {
+    DocumentSnapshot variable = await Firestore.instance.collection("users")
+        .document(fUser.uid)
+        .get();
+    EcommerceApp.userUID = variable.data["uid"];
+    EcommerceApp.userEmail = variable.data["email"];
+    EcommerceApp.cartList = variable.data[EcommerceApp.userCartList].cast<String>();
+    print(EcommerceApp.userUID);
+    print(EcommerceApp.cartList);
+    //return cartList;
+  }
 }
