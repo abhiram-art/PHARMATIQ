@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/cart.dart';
 import 'package:pharmatiq/Store/product_page.dart';
@@ -57,7 +58,7 @@ class _StoreHomeState extends State<StoreHome>
                           builder: (context, counter, _)
                           {
                             return Text(
-                              counter.count.toString(),
+                              ((EcommerceApp.cartList).length-1).toString(),
                               style: TextStyle(color: Colors.white,fontSize: 12.0,fontWeight: FontWeight.w500),
                             );
                           },
@@ -235,9 +236,12 @@ Widget sourceInfo(ItemModel model, BuildContext context,{Color background , remo
                       },
                     )
                         : IconButton(
-                      icon: Icon(Icons.delete, color: Colors.green,), onPressed: () {
-
-                    },
+                      icon: Icon(Icons.delete, color: Colors.green,),
+                      onPressed: (){
+                        removeCartFunction();
+                        Route route =MaterialPageRoute(builder: (c) => StoreHome());
+                        Navigator.pushReplacement(context, route);
+                      },
                     ),
                   ),
                   Divider(

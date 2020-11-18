@@ -1,6 +1,8 @@
 import 'package:pharmatiq/Store/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/storehome.dart';
+import 'package:pharmatiq/config.dart';
+import 'package:pharmatiq/widgets/cartitemcounter.dart';
 import 'package:provider/provider.dart';
 
 
@@ -22,7 +24,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget
         ),
       ),
       iconTheme: IconThemeData(
-        color: Colors.white
+          color: Colors.white
       ),
       flexibleSpace: Container(
         decoration: new BoxDecoration(
@@ -39,12 +41,36 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget
         Stack(
           children: [
             IconButton(
-              icon: Icon(Icons.shopping_cart,color: Colors.white,),
+              icon: Icon(Icons.shopping_cart,color: Colors.black,),
               onPressed: ()
               {
                 Route route = MaterialPageRoute(builder: (c) => CartPage());
                 Navigator.pushReplacement(context, route);
               },
+            ),
+            Positioned(
+              child: Stack(
+                children: [
+                  Icon(
+                    Icons.brightness_1,
+                    size:20.0,
+                    color:Colors.green,
+                  ),
+                  Positioned(
+                    top: 3.0,
+                    bottom: 4.0,
+                    left: 4.0,
+                    child:Consumer<CartItemCounter>(
+                      builder:(context,counter,_){
+                        return Text(
+                          ((EcommerceApp.cartList).length - 1).toString(),
+                          style: TextStyle(color:Colors.white,fontSize: 12.0, fontWeight: FontWeight.bold),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
