@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
+import 'package:pharmatiq/Store/storehome.dart';
 import 'package:pharmatiq/config.dart';
 import 'package:pharmatiq/Store/customAppBar.dart';
 import 'package:pharmatiq/screens/address.dart';
@@ -42,9 +43,12 @@ class AddAddress extends StatelessWidget {
                      .setData(model)
                      .then((value) {
                          final snack = SnackBar(content: Text("New Address added successfully"));
+                         scaffoldKey.currentState.showSnackBar(snack);
                          FocusScope.of(context).requestFocus(FocusNode());
                          formKey.currentState.reset();
                  });
+                 Route route = MaterialPageRoute(builder: (c) => StoreHome());
+                 Navigator.pushReplacement(context, route);
                }
           },
           label: Text("Done"),
@@ -55,12 +59,12 @@ class AddAddress extends StatelessWidget {
           child: Column(
             children: [
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(50.0),
                   child: Text(
                     "Add New Address",
-                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold, fontSize: 20.0 ),
+                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold, fontSize: 25.0),
                   ),
                 ),
               ),
@@ -68,30 +72,39 @@ class AddAddress extends StatelessWidget {
                 key: formKey,
                 child: Column(
                   children: [
+                    Padding(
+                      padding: EdgeInsets.all(2.0)
+                    ),
                      MyTextField(
-                       hint: "Name",
+                       hint: "Name - ",
                        controller: cName,
                      ),
+                    SizedBox(height: 10,),
                     MyTextField(
-                      hint: "Phone Number",
+                      hint: "Phone Number - ",
                       controller: cPhoneNumber,
                     ),
+                    SizedBox(height: 10,),
                     MyTextField(
-                      hint: "Flat Number / House Number",
+                      hint: "House Number -",
                       controller: cFlatHomeNumber,
                     ),
+                    SizedBox(height: 10,),
                     MyTextField(
-                      hint: "City",
+                      hint: "City -",
                       controller: cCity,
                     ),
+                    SizedBox(height: 10,),
                     MyTextField(
-                      hint: "State",
+                      hint: "State -",
                       controller: cState,
                     ),
+                    SizedBox(height: 10,),
                     MyTextField(
-                      hint: "Pin Code",
+                      hint: "Pin Code -",
                       controller: cPinCode,
                     ),
+                    SizedBox(height: 10,),
                   ],
                 )
               )
@@ -111,10 +124,22 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-       padding: EdgeInsets.all(0.0),
+       padding: EdgeInsets.all(15.0),
       child: TextFormField(
+
+        style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold ,fontSize: 20.0 ),
         controller: controller,
-        decoration: InputDecoration.collapsed(hintText: hint),
+        decoration:
+        InputDecoration.collapsed(
+          hintText: hint ,
+          filled: true ,
+          fillColor: Colors.grey.withOpacity(0.2) ,
+          //contentPadding: EdgeInsets.symmetric(vertical: 0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+
         validator: (val) => val.isEmpty ? "Field cannot be empty." : null,
       ),
     );

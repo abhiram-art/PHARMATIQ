@@ -64,6 +64,7 @@ class _StoreHomeState extends State<StoreHome>
                       Positioned(
                         top: 3.0,
                         bottom: 4.0,
+                        left: 5.0,
                         child: Consumer<CartItemCounter>(
                           builder: (context, counter, _)
                           {
