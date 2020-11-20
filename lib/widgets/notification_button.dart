@@ -4,6 +4,7 @@ import 'package:badges/badges.dart';
 class NotificationButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Badge(
         position: BadgePosition(
           start: 25,top: 8,

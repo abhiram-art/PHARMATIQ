@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pharmatiq/screens/homedesign.dart';
-import 'package:pharmatiq/screens/login.dart';
+
+import 'login.dart';
 
 class AddPage extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _AddPageState extends State<AddPage> {
 
   //crudMethods crudObj = new crudMethods();
 
- // Map<String, String> jobData = Map();
+  // Map<String, String> jobData = Map();
 
   void addSearchkey() {
     DocumentReference documentReference = database.collection('Profile').document();
@@ -57,10 +58,10 @@ class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar:AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor:Color.fromRGBO(0, 170, 140, 1),
-      ),
+        appBar:AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor:Color.fromRGBO(0, 170, 140, 1),
+        ),
         resizeToAvoidBottomPadding: false,
         resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
@@ -90,7 +91,7 @@ class _AddPageState extends State<AddPage> {
                           });
                         }
                     ),
-                   // SizedBox(height: 15.0),
+                    // SizedBox(height: 15.0),
 
                     //SizedBox(height: 15.0),
 
@@ -146,53 +147,35 @@ class _AddPageState extends State<AddPage> {
                               //Navigator.pushNamed(context, '/homepage');
                               addSearchkey();
                             },
-                            //child: Center(
-                              child: FlatButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                        builder: (context) => HomePage2()));
-                                  },
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30)
-                                  ),
-                                  child: Text('Add Details',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 17.0,
-                                        fontWeight: FontWeight.bold
-                                    ),
-                                  ),
-                                  color: Color.fromRGBO(0, 170, 140, 2)
-                              )
-                              // Text(
-                               // 'ADD',
-                               // style: TextStyle(
-                                   // color: Colors.white,
-                                   // fontWeight: FontWeight.bold,
-                                   // fontFamily: 'Montserrat'),
+                            child: Center(
+                              child: Text(
+                                'ADD',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Montserrat'),
                               ),
                             ),
                           ),
-                        //),
-
-                     SizedBox(height: 20.0),
-                   // Container(
-                      //height: 40.0,
-                     // color: Colors.transparent,
-                      //child: Container(
-                        //decoration: BoxDecoration(
-                           // border: Border.all(
-                                //color: Colors.black,
-                                //style: BorderStyle.solid,
-                                //width: 1.0),
-                            //color: Colors.transparent,
-                           // borderRadius: BorderRadius.circular(20.0)),
-                       // child: InkWell(
-                         // onTap: () {
-                           // Navigator.of(context).pop();
-                         // },
-                        //),
-                      //),
+                        )),
+                    SizedBox(height: 20.0),
+                    // Container(
+                    //height: 40.0,
+                    // color: Colors.transparent,
+                    //child: Container(
+                    //decoration: BoxDecoration(
+                    // border: Border.all(
+                    //color: Colors.black,
+                    //style: BorderStyle.solid,
+                    //width: 1.0),
+                    //color: Colors.transparent,
+                    // borderRadius: BorderRadius.circular(20.0)),
+                    // child: InkWell(
+                    // onTap: () {
+                    // Navigator.of(context).pop();
+                    // },
+                    //),
+                    //),
                     //),
                   ],
                 )),

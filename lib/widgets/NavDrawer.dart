@@ -1,3 +1,4 @@
+import 'package:pharmatiq/Orders/myOrders.dart';
 import 'package:pharmatiq/screens/profile.dart';
 import 'package:pharmatiq/authentication.dart';
 import 'package:pharmatiq/screens/login.dart';
@@ -36,7 +37,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.shopping_cart),
             title: Text('My Orders', style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400),),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => MyOrders()))},
           ),
           ListTile(
             leading: Icon(Icons.border_color),
