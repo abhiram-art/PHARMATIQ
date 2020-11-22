@@ -44,95 +44,93 @@ class OrderCard extends StatelessWidget
       ),
     );
   }
+}
 
-  Widget sourceOrderInfo(ItemModel model , BuildContext context,
-  {Color background})
-  {
-    width = MediaQuery.of(context).size.width;
+Widget sourceOrderInfo(ItemModel model , BuildContext context,
+    {Color background})
+{
+  width = MediaQuery.of(context).size.width;
 
-    return Container(
-      height: 170.0,
-      width: width,
-      color: Colors.grey[100],
+  return Container(
+    height: 170.0,
+    width: width,
+    color: Colors.grey[100],
 
-      child: Row(
-        children: [
-          Image.network(model.thumbnailUrl , width: 180.0,),
-          SizedBox(width: 10.0,),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 15.0,),
-                Container(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max ,
-                    children: [
-                      Expanded(
-                        child: Text(model.title , style: TextStyle(color: Colors.white , fontSize: 14.0),),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 5.0,),
-                Container(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max ,
-                    children: [
-                      Expanded(
-                        child: Text(model.shortInfo , style: TextStyle(color: Colors.blueGrey, fontSize: 12.0),),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20.0,),
-                Row(
+    child: Row(
+      children: [
+        Image.network(model.thumbnailUrl , width: 180.0,),
+        SizedBox(width: 10.0,),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 15.0,),
+              Container(
+                child: Row(
+                  mainAxisSize: MainAxisSize.max ,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 5.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                r"Total Price: ₹",
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    color: Colors.blueGrey
-                                ),
-                              ),
-                              Text(
-                                (model.price).toString(),
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    color: Colors.blueGrey
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    Expanded(
+                      child: Text(model.title , style: TextStyle(color: Colors.white , fontSize: 14.0),),
                     ),
                   ],
                 ),
-                Flexible(
-                  child: Container(
-
+              ),
+              SizedBox(height: 5.0,),
+              Container(
+                child: Row(
+                  mainAxisSize: MainAxisSize.max ,
+                  children: [
+                    Expanded(
+                      child: Text(model.shortInfo , style: TextStyle(color: Colors.blueGrey, fontSize: 12.0),),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20.0,),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              r"Total Price: ₹",
+                              style: TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.blueGrey
+                              ),
+                            ),
+                            Text(
+                              (model.price).toString(),
+                              style: TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.blueGrey
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
+                ],
+              ),
+              Flexible(
+                child: Container(
+
                 ),
-                //to implement the cart item remove feature
-                Divider(
-                  height: 5.0,
-                  color: Colors.black,
-                ),
-              ],
-            ),
+              ),
+              //to implement the cart item remove feature
+              Divider(
+                height: 5.0,
+                color: Colors.black,
+              ),
+            ],
           ),
-        ],
-      ),
-    );
-  }
-
-
+        ),
+      ],
+    ),
+  );
 }

@@ -57,6 +57,7 @@ class _MyOrdersState extends State<MyOrders> {
                          .where("shortInfo" , whereIn:  snapshot.data.documents[index].data[EcommerceApp.productID])
                          .getDocuments(),
 
+
                      builder: (c , snap)
                      {
                        return snap.hasData

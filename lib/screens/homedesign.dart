@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pharmatiq/Store/cart.dart';
 import 'package:pharmatiq/Store/storehome.dart';
+import 'package:pharmatiq/Store/storehome1.dart';
+import 'package:pharmatiq/Store/storehome2.dart';
 import 'package:pharmatiq/widgets/NavDrawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -200,7 +202,45 @@ class _DashboardPageState extends State<DashboardPage>
           child:
           InkWell(
               onTap: () {
-                Route route = MaterialPageRoute(builder: (c) => StoreHome());
+                Route route = MaterialPageRoute(builder: (c) => StoreHome1());
+                Navigator.pushReplacement(context, route);
+              },
+              child: Container(
+                  height: 175.0,
+                  width: 150.0,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: bgColor),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Hero(
+                          tag: category,
+                          child: Container(
+                              height: 75.0,
+                              width: 75.0,
+                              decoration: BoxDecoration(
+                                  color: Colors.white, shape: BoxShape.circle),
+                              child: Center(
+                                  child: Image.asset(imgPath,
+                                      height: 50.0, width: 50.0)))),
+                      SizedBox(height: 25.0),
+                      Text(
+                        category,
+                        style: GoogleFonts.notoSans(
+                            fontSize: 17.0, color: textColor),
+                      ),
+
+                    ],
+                  ))));
+    }
+    if(category== "Covid essentials"){
+      return Padding(
+          padding: EdgeInsets.only(left: 15.0),
+          child:
+          InkWell(
+              onTap: () {
+                Route route = MaterialPageRoute(builder: (c) => StoreHome2());
                 Navigator.pushReplacement(context, route);
               },
               child: Container(
