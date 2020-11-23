@@ -57,7 +57,7 @@ import 'package:pharmatiq/config.dart';
       BuildContext context) async {
     try {
       AuthResult result =
-      await auth.signInWithEmailAndPassword(email: email, password: email);
+      await auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
       // return Future.value(true);
       return Future.value(user);
@@ -97,7 +97,7 @@ import 'package:pharmatiq/config.dart';
       BuildContext context) async {
     try {
       AuthResult result = await auth.createUserWithEmailAndPassword(
-          email: email, password: email);
+          email: email, password: password);
       FirebaseUser user = result.user;
       return Future.value(user);
       // return Future.value(true);

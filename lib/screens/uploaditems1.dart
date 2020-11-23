@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pharmatiq/screens/adminLogin.dart';
-import 'package:pharmatiq/screens/adminshiftorders.dart';
+import 'package:pharmatiq/Orders/adminshiftorders.dart';
 import 'package:pharmatiq/widgets/loadingwidget.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:pharmatiq/item1.dart';

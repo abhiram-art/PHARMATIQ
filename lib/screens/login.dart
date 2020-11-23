@@ -203,9 +203,13 @@ class _HomePage2State extends State<HomePage2> {
                               onTap: () {
                                 googleSignIn().whenComplete(() async {
                                   FirebaseUser user = await FirebaseAuth.instance.currentUser();
-
-                                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                      builder: (context) => DashboardPage(uid: user.uid)));
+                                  if(user.uid!=null){
+                                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                        builder: (context) => DashboardPage(uid: user.uid)));}
+                                  else{
+                                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                        builder: (context) => HomePage2()));
+                                  }
                                 });
                               },
                               child:
