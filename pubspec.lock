@@ -218,7 +218,7 @@ packages:
       name: fluttertoast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.1.1"
+    version: "7.1.4"
   form_field_validator:
     dependency: "direct main"
     description:

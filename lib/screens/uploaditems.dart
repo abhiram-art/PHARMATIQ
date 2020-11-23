@@ -73,13 +73,14 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.shop_two, color: Colors.green, size: 200.0,),
+            Image(image: AssetImage("images/tab.png"),height:250),
+            //Icon(Icons.add_circle, color: Colors.green, size: 200.0,),
             Padding(
               padding: EdgeInsets.only(top: 20.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9.0)),
-                child: Text("Add New Items",style: TextStyle(fontSize: 20.0 ,color: Colors.black),),
-                color: Colors.green,
+                child: Text("Add New Items",style: TextStyle(fontSize: 20.0 ,color: Colors.white),),
+                color: Color.fromRGBO(0, 170, 140, 1),
                 onPressed: () => takeImage(context),
               ),
             )

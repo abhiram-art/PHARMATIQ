@@ -4,6 +4,8 @@ import 'package:pharmatiq/screens/login.dart';
 import 'package:pharmatiq/screens/uploaditems.dart';
 import 'package:pharmatiq/widgets/custometextfield.dart';
 
+import 'option.dart';
+
 
 Future<void> main() async {
   runApp(MaterialApp(
@@ -29,7 +31,7 @@ class _AdminPageState extends State<AdminPage> {
         if(result.data["id"] == _adminIdTextEditingController.text.trim() && result.data["password"] == _passwordTextEditingController.text.trim())
         {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => UploadPage()));
+              builder: (context) => option()));
         }
       });
     });
