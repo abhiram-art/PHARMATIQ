@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmatiq/Store/storehome.dart';
-import 'file:///C:/Users/asrit/AndroidStudioProjects/pharmatiq/lib/Orders/adminOrderDetails.dart';
+//import 'file:///C:/Users/asrit/AndroidStudioProjects/pharmatiq/lib/Orders/adminOrderDetails.dart';
 import 'package:pharmatiq/widgets/orderCard.dart';
 
 import '../item.dart';
+import 'adminOrderDetails.dart';
 
 
 int counter=0;

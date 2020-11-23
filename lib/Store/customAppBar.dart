@@ -42,7 +42,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget
         Stack(
           children: [
             IconButton(
-              icon: Icon(Icons.shopping_cart,color: Colors.black,),
+              icon: Icon(Icons.shopping_cart,color: Colors.white,),
               onPressed: ()
               {
                 Route route = MaterialPageRoute(builder: (c) => CartPage());
@@ -55,17 +55,17 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget
                   Icon(
                     Icons.brightness_1,
                     size:20.0,
-                    color:Colors.green,
+                    color:Colors.white,
                   ),
                   Positioned(
                     top: 3.0,
                     bottom: 4.0,
-                    left: 8.0,
+                    left: 7.0,
                     child:Consumer<CartItemCounter>(
                       builder:(context,counter,_){
                         return Text(
                           ((EcommerceApp.cartList).length - 1).toString(),
-                          style: TextStyle(color:Colors.white,fontSize: 12.0, fontWeight: FontWeight.bold),
+                          style: TextStyle(color:Colors.black,fontSize: 12.0, fontWeight: FontWeight.bold),
                         );
                       },
                     ),

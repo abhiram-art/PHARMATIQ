@@ -55,7 +55,7 @@ class _ProductPageState extends State<ProductPage> {
                             widget.itemModel.title,
                             style: boldTextStyle,
                           ),
-                          SizedBox(height: 10.0,),
+                          SizedBox(height: 10,),
                           Text(
                             widget.itemModel.longDescription,
                             style: boldTextStyle,

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pharmatiq/config.dart';
 import 'package:pharmatiq/Store/storehome.dart';
+import 'package:pharmatiq/payment.dart';
 import 'package:pharmatiq/widgets/cartitemcounter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,18 @@ class _PlaceOrderState extends State<PlaceOrder>{
                 splashColor: Color.fromRGBO(0, 170, 140, 1),
                 onPressed: () => addOrderDetails(),
                 child: Text("Place Order" , style: TextStyle(fontSize: 30.0),),
-              )
+              ),
+              SizedBox(height: 10,),
+              FlatButton(
+                color: Colors.green,
+                textColor: Colors.white,
+                padding: EdgeInsets.all(0.0),
+                splashColor: Color.fromRGBO(0, 170, 140, 1),
+                onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => MyApp()));
+                },
+                child: Text("Pay Online" , style: TextStyle(fontSize: 30.0),),
+              ),
             ],
           ),
         ),

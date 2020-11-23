@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmatiq/Orders/placeOrderPayment.dart';
 
 
 void main() => runApp(MyApp());
@@ -34,7 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 IconButton(
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => PlaceOrder()));
+                  },
                 ),
                 Container(
                     width: 155.0,
@@ -96,13 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           _buildFoodItem('images/Upi1.png', 'UPI'),
                           _buildFoodItem('images/cards1.png', 'Credit/Debit/ATM Card'),
                           _buildFoodItem('images/netbank.png', 'Net Banking'),
-                          _buildFoodItem('images/cod1.png', 'Cash on delivery')
+                          //_buildFoodItem('images/cod1.png', 'Cash on delivery')
                         ]))),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      height: 55.0,
+                      height: 35.0,
                       width: 120.0,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -147,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   image: AssetImage(imgPath),
                                   fit: BoxFit.cover,
                                   height: 75.0,
-                                  width: 75.0
+                                  width: 65.0
                               )
                           ),
                           SizedBox(width: 10.0),
