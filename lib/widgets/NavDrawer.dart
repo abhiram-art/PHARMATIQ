@@ -40,11 +40,6 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => MyOrders()))},
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback', style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400),),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout', style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400),),
             onTap: () => {

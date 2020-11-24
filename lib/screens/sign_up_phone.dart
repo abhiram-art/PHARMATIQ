@@ -100,7 +100,7 @@ class _PhonePageState extends State<PhonePage> {
         ),
         padding: EdgeInsets.all(16),
         textColor: type == InputType.phone ? Colors.white : Colors.white,
-        color: type == InputType.phone ?  Color.fromRGBO(0, 170, 140, 2): Colors.white,
+        color: type == InputType.phone ?  Color.fromRGBO(0, 170, 140, 2): Color.fromRGBO(0, 170, 140, 2) ,
         //Colors.green[400].withOpacity(0.62)
             //: Colors.white,
         onPressed: () => type == InputType.phone ? _requestSMSCodeUsingPhoneNumber() : _signInWithPhoneNumberAndSMSCode(),
